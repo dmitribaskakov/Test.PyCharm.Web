@@ -17,5 +17,8 @@ docker rm $(docker ps -a -q)
 
 docker run --detach --rm --name web --publish 8080:8080 --env TZ=Asia/Novosibirsk test.pycharm.web
 
+docker run --detach --rm --name web --publish 8080:8080 --env TZ=Asia/Novosibirsk --volume C:\Projects\Test.PyCharm.Web\resources\:/usr/src/app/resources/ test.pycharm.web
+
+
 
 
