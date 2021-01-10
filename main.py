@@ -1,16 +1,17 @@
-# This is a sample Python script.
+import os
+import json
+import datetime
+from flask import Flask
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+app = Flask(__name__)
 
+BASE_FOLDER = os.path.dirname((os.path.abspath(__file__)))
+RESOURCE_DIR =  os.path.join(BASE_FOLDER, "resources")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+@app.route('/')
+def hello_world():
+    with open(os.path.join(RESOURCE_DIR, "response.json")) as f:
+        return "%s - %s" % (json.loads(f.read()).get("payload"), datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+     app.run(host="0.0.0.0", port=8080, debug=True)
