@@ -15,6 +15,6 @@ docker ps -a
 
 docker rm $(docker ps -a -q)
 
-docker run --name hello --rm test.pycharm.web
+docker run --rm --name web -p 8080:8080 test.pycharm.web
 
 
