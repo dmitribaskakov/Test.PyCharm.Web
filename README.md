@@ -19,6 +19,13 @@ docker run --detach --rm --name web --publish 8080:8080 --env TZ=Asia/Novosibirs
 
 docker run --detach --rm --name web --publish 8080:8080 --env TZ=Asia/Novosibirsk --volume C:\Projects\Test.PyCharm.Web\resources\:/usr/src/app/resources/ test.pycharm.web
 
+docker volume ls
+
+docker volume create web
+
+docker run --detach --rm --name web --publish 8080:8080 --env TZ=Asia/Novosibirsk --volume web:/usr/src/app/resources/ test.pycharm.web
+
+
 
 
 
