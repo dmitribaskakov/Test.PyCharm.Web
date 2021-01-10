@@ -15,6 +15,7 @@ docker ps -a
 
 docker rm $(docker ps -a -q)
 
-docker run --rm --name web -p 8080:8080 test.pycharm.web
+docker run --detach --rm --name web --publish 8080:8080 test.pycharm.web
+
 
 
